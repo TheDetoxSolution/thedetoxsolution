@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Refund Request — The Detox Solution</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;1,400&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #FAF7F2; --cream2: #F2EDE4; --white: #FFFFFF;
+      --teal: #0F4C5C; --teal2: #0A3A48; --sage: #5B8A7A;
+      --sage-light: #E8F0ED; --ink: #1A1E1D; --muted: #6B7875;
+      --light-muted: #9BAAA5; --border: #E0DAD0; --border2: #C8C0B4;
+    }
+    body { background: var(--cream); color: var(--ink); font-family: 'Figtree', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 56px 24px 80px; -webkit-font-smoothing: antialiased; }
+
+    .logo { font-family: 'Cormorant Garant', serif; font-size: 20px; font-weight: 600; color: var(--teal); margin-bottom: 6px; }
+    .logo span { font-style: italic; color: var(--sage); }
+    .logo-sub { font-size: 12px; color: var(--light-muted); margin-bottom: 48px; }
+
+    .card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 44px; width: 100%; max-width: 500px; box-shadow: 0 2px 24px rgba(0,0,0,0.04); }
+    .card-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+    .card h1 { font-family: 'Cormorant Garant', serif; font-size: 30px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 10px; }
+    .card-sub { font-size: 14px; color: var(--muted); font-weight: 300; line-height: 1.65; margin-bottom: 32px; }
+
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; background: var(--cream); border: 1px solid var(--border); border-radius: 8px; padding: 13px 16px; color: var(--ink); font-family: 'Figtree', sans-serif; font-size: 14px; font-weight: 300; outline: none; transition: border-color 0.2s; }
+    .form-group input:focus, .form-group select:focus { border-color: var(--teal); background: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media(max-width:480px){ .form-row{grid-template-columns:1fr;} }
+
+    .submit-btn { width: 100%; background: var(--teal); color: var(--white); padding: 15px; border: none; border-radius: 8px; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
+    .submit-btn:hover { background: var(--teal2); }
+    .form-note { font-size: 12px; color: var(--light-muted); text-align: center; margin-top: 14px; font-weight: 300; line-height: 1.5; }
+
+    .success-msg { display: none; text-align: center; padding: 32px 0; }
+    .success-check { font-size: 36px; color: var(--teal); margin-bottom: 16px; }
+    .success-title { font-family: 'Cormorant Garant', serif; font-size: 24px; font-weight: 500; margin-bottom: 10px; }
+    .success-body { font-size: 14px; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+    .help { margin-top: 28px; font-size: 13px; color: var(--light-muted); text-align: center; }
+    .help a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .help a:hover { color: var(--ink); }
+  </style>
+</head>
+<body>
+
+  <div class="logo">The <span>Detox</span> Solution</div>
+  <div class="logo-sub">Clear Path Solutions Group LLC</div>
+
+  <div class="card">
+    <div class="card-tag">Refund Request</div>
+    <h1>We will make it right.</h1>
+    <p class="card-sub">If your product did not dispense or was defective, fill out this form. All refunds are processed within 72 hours to your original payment method. No follow-up needed from you.</p>
+
+    <form id="refundForm" action="https://formspree.io/f/xojbzewz" method="POST">
+      <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="Full name" required/></div>
+      <div class="form-group"><label>Facility Name</label><input type="text" name="facility" placeholder="e.g. Bowling Green Brandywine" required/></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Month of Purchase</label>
+          <select name="month" required>
+            <option value="" disabled selected>Month</option>
+            <option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Day of Purchase</label>
+          <select name="day" required>
+            <option value="" disabled selected>Day</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Approximate Time</label><input type="time" name="time" required/></div>
+      <div class="form-group"><label>Last 4 Digits of Card Used</label><input type="text" name="card_last4" placeholder="e.g. 4242" maxlength="4" required/></div>
+      <div class="form-group"><label>What happened?</label>
+        <select name="issue" required>
+          <option value="" disabled selected>Select issue</option>
+          <option>Product did not dispense</option>
+          <option>Product dispensed but was defective</option>
+          <option>Wrong product dispensed</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Additional Details (Optional)</label><textarea name="details" placeholder="Anything else we should know..."></textarea></div>
+      <button type="submit" class="submit-btn">Submit Refund Request</button>
+      <div class="form-note">Refunds are processed within 72 hours. No follow-up needed.</div>
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      <div class="success-check">&#10003;</div>
+      <div class="success-title">Refund request submitted.</div>
+      <p class="success-body">Your refund will be returned to your card within 72 hours. You do not need to do anything else.</p>
+    </div>
+  </div>
+
+  <div class="help">Questions? <a href="mailto:refund@thedetoxsolution.com">refund@thedetoxsolution.com</a></div>
+
+<script>
+  document.getElementById('refundForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = this;
+    const data = new FormData(form);
+    try {
+      const response = await fetch('https://formspree.io/f/xojbzewz', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      if (response.ok) { form.style.display = 'none'; document.getElementById('successMsg').style.display = 'block'; }
+      else { alert('Something went wrong. Please email refund@thedetoxsolution.com'); }
+    } catch { alert('Something went wrong. Please email refund@thedetoxsolution.com'); }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Installer Guide — The Detox Solution</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;1,400&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #FAF7F2; --cream2: #F2EDE4; --white: #FFFFFF;
+      --teal: #0F4C5C; --teal2: #0A3A48; --sage: #5B8A7A;
+      --sage-light: #E8F0ED; --sage-mid: #B8D4CB;
+      --ink: #1A1E1D; --muted: #6B7875;
+      --light-muted: #9BAAA5; --border: #E0DAD0; --border2: #C8C0B4;
+      --amber: #92400E; --amber-light: #FEF3C7; --amber-border: #FCD34D;
+    }
+    body { background: var(--cream); color: var(--ink); font-family: 'Figtree', sans-serif; -webkit-font-smoothing: antialiased; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 64px; height: 72px; background: rgba(250,247,242,0.94); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Cormorant Garant', serif; font-size: 20px; font-weight: 600; color: var(--teal); text-decoration: none; }
+    .nav-logo span { font-style: italic; color: var(--sage); }
+    .nav-back { font-size: 13px; color: var(--muted); text-decoration: none; border: 1px solid var(--border2); padding: 8px 18px; border-radius: 6px; transition: color 0.2s, border-color 0.2s; }
+    .nav-back:hover { color: var(--ink); border-color: var(--ink); }
+    @media(max-width:768px){ nav{padding:0 24px;} }
+
+    .hero { max-width: 1060px; margin: 0 auto; padding: 116px 60px 64px; }
+    @media(max-width:768px){ .hero{padding:100px 24px 48px;} }
+    .hero-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); margin-bottom: 18px; }
+    .hero h1 { font-family: 'Cormorant Garant', serif; font-size: clamp(36px,5vw,54px); font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .hero p { font-size: 17px; font-weight: 300; line-height: 1.75; color: var(--muted); max-width: 560px; }
+
+    .content { max-width: 1060px; margin: 0 auto; padding: 0 60px 100px; }
+    @media(max-width:768px){ .content{padding:0 24px 80px;} }
+    .section { margin-bottom: 64px; }
+    .section-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .section-tag::before { content:''; display:block; width:16px; height:2px; background:var(--sage); border-radius:2px; }
+    .section h2 { font-family: 'Cormorant Garant', serif; font-size: clamp(26px,3vw,36px); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 24px; }
+    .sep { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+
+    .alert-box { background: var(--amber-light); border: 1px solid var(--amber-border); border-radius: 12px; padding: 22px 28px; margin-bottom: 28px; }
+    .alert-title { font-size: 12px; font-weight: 600; color: var(--amber); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+    .toolkit-items { display: flex; gap: 10px; flex-wrap: wrap; }
+    .toolkit-tag { background: white; border: 1px solid var(--amber-border); border-radius: 6px; padding: 5px 14px; font-size: 13px; color: var(--amber); font-weight: 500; }
+
+    .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+    @media(max-width:680px){ .video-grid{grid-template-columns:1fr;} }
+    .video-box { background: var(--white); border: 1px solid var(--border); border-radius: 12px; aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; cursor: pointer; transition: border-color 0.2s; }
+    .video-box:hover { border-color: var(--border2); }
+    .play-btn { width: 50px; height: 50px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .play-btn:hover { background: var(--teal2); }
+    .play-arrow { width: 0; height: 0; border-style: solid; border-width: 9px 0 9px 16px; border-color: transparent transparent transparent white; margin-left: 4px; }
+    .video-title { font-size: 13px; color: var(--muted); text-align: center; padding: 0 16px; }
+
+    .steps { display: flex; flex-direction: column; gap: 2px; }
+    .step { display: flex; align-items: flex-start; gap: 20px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 22px 28px; }
+    .step-num { width: 34px; height: 34px; min-width: 34px; background: var(--sage-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: var(--teal); }
+    .step-content h3 { font-size: 15px; font-weight: 500; margin-bottom: 5px; }
+    .step-content p { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+    .photo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    @media(max-width:680px){ .photo-grid{grid-template-columns:1fr;} }
+    .photo-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--teal); border-radius: 12px; padding: 28px; text-align: center; }
+    .photo-num { font-family: 'Cormorant Garant', serif; font-size: 44px; font-weight: 500; color: var(--sage-mid); line-height: 1; margin-bottom: 10px; }
+    .photo-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
+    .photo-card p { font-size: 13px; color: var(--muted); font-weight: 300; line-height: 1.5; }
+
+    .contact-block { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media(max-width:680px){ .contact-block{grid-template-columns:1fr;} }
+    .contact-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--teal); border-radius: 12px; padding: 28px; }
+    .contact-name { font-family: 'Cormorant Garant', serif; font-size: 22px; font-weight: 500; margin-bottom: 4px; }
+    .contact-role { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 18px; }
+    .contact-line { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+    .contact-line a { color: var(--ink); text-decoration: none; transition: color 0.2s; }
+    .contact-line a:hover { color: var(--teal); }
+
+    footer { background: var(--teal); padding: 36px 64px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    @media(max-width:768px){ footer{padding:24px; flex-direction:column; text-align:center;} }
+    .footer-logo { font-family: 'Cormorant Garant', serif; font-size: 17px; font-weight: 600; color: var(--white); }
+    .footer-logo span { font-style: italic; color: #B8D4CB; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">The <span>Detox</span> Solution</a>
+  <a href="start.html" class="nav-back">← Back</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Installer Guide</div>
+  <h1>Install guide for<br>Field Nation technicians.</h1>
+  <p>Watch the videos, follow the steps in order, and submit your completion photos. The job takes under 45 minutes. Call us immediately if anything looks off.</p>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-tag">Before You Arrive</div>
+    <h2>Required toolkit</h2>
+    <div class="alert-box">
+      <div class="alert-title">Do not show up without these three items</div>
+      <div class="toolkit-items">
+        <div class="toolkit-tag">Phillips head screwdriver</div>
+        <div class="toolkit-tag">2 trash bags</div>
+        <div class="toolkit-tag">Phone for completion photos</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sep"/>
+
+  <div class="section">
+    <div class="section-tag">01 — Watch First</div>
+    <h2>Video walkthroughs</h2>
+    <div class="video-grid">
+      <div class="video-box"><div class="play-btn"><div class="play-arrow"></div></div><div class="video-title">Uncrating and Unboxing</div></div>
+      <div class="video-box"><div class="play-btn"><div class="play-arrow"></div></div><div class="video-title">Rolling to Position and Locking Wheels</div></div>
+      <div class="video-box"><div class="play-btn"><div class="play-arrow"></div></div><div class="video-title">Power, Ethernet and Wireless Kit</div></div>
+      <div class="video-box"><div class="play-btn"><div class="play-arrow"></div></div><div class="video-title">Stocking the Machine and Live Transaction</div></div>
+    </div>
+  </div>
+
+  <hr class="sep"/>
+
+  <div class="section">
+    <div class="section-tag">02 — Step by Step</div>
+    <h2>Complete install checklist</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h3>Accept the freight delivery</h3><p>Machine arrives via liftgate truck on a pallet in a crate. Inspect for damage before signing. Photograph any damage before you sign anything.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h3>Uncrate the machine</h3><p>Remove crate panels from the top down. The machine has caster wheels on the base. Do not lift it — roll it.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h3>Roll to position</h3><p>The facility contact will show you where the machine is going. Roll slowly. Take corners carefully.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><h3>Lock the caster wheels</h3><p>Lock all four wheels once in final position. Show the facility contact where the locks are.</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-content"><h3>Tighten aisle screws</h3><p>Open the front door with the key provided. Tighten all aisle screws with your Phillips head screwdriver before stocking.</p></div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-content"><h3>Debug all coils</h3><p>Spin every coil manually to confirm it rotates freely. If a coil does not spin, call us before proceeding.</p></div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-content"><h3>Install the QR code</h3><p>Apply the QR code sticker to the designated spot on the machine exterior as shown in the video.</p></div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-content"><h3>Plug in power and wireless kit</h3><p>Plug the power cord into the nearest outlet. Plug the ethernet cable into the wireless kit. No WiFi needed — it connects automatically over cellular.</p></div></div>
+      <div class="step"><div class="step-num">9</div><div class="step-content"><h3>Confirm boot up</h3><p>The touchscreen should light up within 60 seconds. If it does not turn on within 2 minutes, call us before doing anything else.</p></div></div>
+      <div class="step"><div class="step-num">10</div><div class="step-content"><h3>Stock the machine</h3><p>Load products matching the aisle labels. Use your 2 trash bags for all packing materials. Leave no packaging in the facility.</p></div></div>
+      <div class="step"><div class="step-num">11</div><div class="step-content"><h3>Run a live transaction</h3><p>Purchase one item to confirm the card reader, coil, and dispensing all work. We will reimburse this charge.</p></div></div>
+    </div>
+  </div>
+
+  <hr class="sep"/>
+
+  <div class="section">
+    <div class="section-tag">03 — Closeout</div>
+    <h2>Submit 3 completion photos</h2>
+    <p style="font-size:14px; color:var(--muted); margin-bottom:24px; font-weight:300;">Upload all three to your Field Nation work order before checking out.</p>
+    <div class="photo-grid">
+      <div class="photo-card"><div class="photo-num">01</div><h3>Interior — Stocked</h3><p>Machine open, product loaded, all coils visible</p></div>
+      <div class="photo-card"><div class="photo-num">02</div><h3>Interior — Screen</h3><p>Touchscreen powered on showing product menu</p></div>
+      <div class="photo-card"><div class="photo-num">03</div><h3>Exterior</h3><p>Full machine in final position inside the facility</p></div>
+    </div>
+  </div>
+
+  <hr class="sep"/>
+
+  <div class="section">
+    <div class="section-tag">04 — On-Site Support</div>
+    <h2>Need help during the install?</h2>
+    <p style="font-size:14px; color:var(--muted); margin-bottom:28px; font-weight:300;">We are available the entire time you are on site. Call or text — we respond immediately.</p>
+    <div class="contact-block">
+      <div class="contact-card">
+        <div class="contact-name">Jacob Hagman</div>
+        <div class="contact-role">Operations</div>
+        <div class="contact-line">Email: <a href="mailto:jacob@thedetoxsolution.com">jacob@thedetoxsolution.com</a></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Ridge Miller</div>
+        <div class="contact-role">Inventory & Refunds</div>
+        <div class="contact-line">Email: <a href="mailto:ridge@thedetoxsolution.com">ridge@thedetoxsolution.com</a></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">The <span>Detox</span> Solution</div>
+  <div class="footer-copy">© 2026 Clear Path Solutions Group LLC</div>
+</footer>
+
+</body>
+</html>

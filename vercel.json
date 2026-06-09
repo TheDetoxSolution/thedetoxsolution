@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/start.html",
+      "has": [{"type": "host", "value": "start.thedetoxsolution.com"}]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/refund.html",
+      "has": [{"type": "host", "value": "refund.thedetoxsolution.com"}]
+    }
+  ]
+}

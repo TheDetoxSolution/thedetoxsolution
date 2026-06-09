@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Started — The Detox Solution</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;1,400&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #FAF7F2; --white: #FFFFFF; --teal: #0F4C5C; --sage: #5B8A7A;
+      --sage-light: #E8F0ED; --sage-mid: #B8D4CB; --ink: #1A1E1D; --muted: #6B7875;
+      --light-muted: #9BAAA5; --border: #E0DAD0; --border2: #C8C0B4;
+    }
+    body { background: var(--cream); color: var(--ink); font-family: 'Figtree', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 24px; -webkit-font-smoothing: antialiased; }
+
+    .logo { font-family: 'Cormorant Garant', serif; font-size: 20px; font-weight: 600; color: var(--teal); margin-bottom: 8px; }
+    .logo span { font-style: italic; color: var(--sage); }
+    .logo-sub { font-size: 12px; color: var(--light-muted); margin-bottom: 56px; }
+
+    .headline { font-family: 'Cormorant Garant', serif; font-size: clamp(32px,5vw,44px); font-weight: 500; letter-spacing: -0.02em; text-align: center; margin-bottom: 10px; }
+    .sub { font-size: 15px; color: var(--muted); font-weight: 300; text-align: center; margin-bottom: 52px; }
+
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; max-width: 680px; }
+    @media(max-width:580px){ .cards{grid-template-columns:1fr;} }
+
+    .card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 40px 36px; text-decoration: none; color: var(--ink); transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 2px 16px rgba(15,76,92,0.04); }
+    .card:hover { border-color: var(--border2); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(15,76,92,0.08); }
+
+    .card-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); }
+    .card-line { width: 28px; height: 2px; background: var(--sage-mid); border-radius: 2px; }
+    .card-title { font-family: 'Cormorant Garant', serif; font-size: 26px; font-weight: 500; line-height: 1.15; }
+    .card-desc { font-size: 14px; color: var(--muted); line-height: 1.65; font-weight: 300; flex: 1; }
+    .card-arrow { font-size: 18px; color: var(--teal); transition: transform 0.2s; margin-top: 8px; }
+    .card:hover .card-arrow { transform: translateX(4px); }
+
+    .footer-text { margin-top: 52px; font-size: 13px; color: var(--light-muted); text-align: center; }
+    .footer-text a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-text a:hover { color: var(--ink); }
+  </style>
+</head>
+<body>
+
+  <div class="logo">The <span>Detox</span> Solution</div>
+  <div class="logo-sub">Clear Path Solutions Group LLC</div>
+
+  <div class="headline">Welcome.</div>
+  <p class="sub">Select your role to get started.</p>
+
+  <div class="cards">
+    <a href="https://thedetoxsolution.com/facility" class="card">
+      <div class="card-tag">Facility Staff</div>
+      <div class="card-line"></div>
+      <div class="card-title">I work at the facility</div>
+      <div class="card-desc">Restocking guides, contact information, and everything you need to manage the machine day to day.</div>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="https://thedetoxsolution.com/installer" class="card">
+      <div class="card-tag">Field Technician</div>
+      <div class="card-line"></div>
+      <div class="card-title">I am installing the machine</div>
+      <div class="card-desc">Step-by-step install guide, toolkit checklist, video walkthroughs, and completion photo requirements.</div>
+      <div class="card-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="footer-text">
+    Questions? <a href="mailto:jacob@thedetoxsolution.com">jacob@thedetoxsolution.com</a>
+  </div>
+
+</body>
+</html>
