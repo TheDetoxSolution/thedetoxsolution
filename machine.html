@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230F4C5C'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-weight='600' font-size='46' fill='%23B8D4CB' text-anchor='middle'%3EDS%3C/text%3E%3C/svg%3E"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The DS Tower — Machine Specifications | The Detox Solution</title>
+<meta name="description" content="Full specifications for the DS Tower: 43-inch touchscreen, 24 aisles, 21+ ID verification, cashless payment, cellular connectivity. Placed and fully managed in your facility at no cost."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+  :root{
+    --cream:#FAF7F2; --cream2:#F2EDE4; --white:#FFFFFF;
+    --teal:#0F4C5C; --teal2:#0A3A48; --teal3:#06181E;
+    --sage:#5B8A7A; --sage-light:#E8F0ED; --sage-mid:#B8D4CB;
+    --ink:#1A1E1D; --muted:#6B7875; --light-muted:#9BAAA5;
+    --border:#E0DAD0; --border2:#C8C0B4;
+    --serif:'Cormorant Garamond',Georgia,serif; --sans:'Figtree',sans-serif;
+  }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--cream); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+  a{ text-decoration:none; color:inherit; }
+
+  nav{ position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center;
+    justify-content:space-between; padding:0 64px; height:72px;
+    background:rgba(250,247,242,.94); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
+  .nav-logo{ font-family:var(--serif); font-size:21px; font-weight:600; color:var(--teal); }
+  .nav-logo span{ font-style:italic; color:var(--sage); }
+  .nav-links{ display:flex; align-items:center; gap:34px; list-style:none; }
+  .nav-links a{ color:var(--muted); font-size:14px; }
+  .nav-links a:hover{ color:var(--ink); }
+  .nav-cta{ background:var(--teal) !important; color:#fff !important; padding:11px 24px !important;
+    border-radius:6px !important; font-weight:500 !important; }
+  @media(max-width:860px){ nav{padding:0 24px;} .nav-links li:not(.nav-cta-li){display:none;} }
+
+  .section{ max-width:1100px; margin:0 auto; padding:0 60px; }
+  @media(max-width:768px){ .section{padding:0 24px;} }
+  .section-tag{ font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--sage); margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+  .section-tag::before{ content:''; width:20px; height:2px; background:var(--sage); border-radius:2px; }
+
+  /* HERO */
+  .head{ padding:150px 0 0; }
+  .head-grid{ display:grid; grid-template-columns:1fr .85fr; gap:60px; align-items:center; }
+  @media(max-width:880px){ .head-grid{grid-template-columns:1fr; gap:34px;} }
+  h1{ font-family:var(--serif); font-size:clamp(40px,6vw,68px); font-weight:500;
+    line-height:1.05; letter-spacing:-.03em; margin-bottom:20px; }
+  .lede{ font-size:18px; font-weight:300; line-height:1.8; color:var(--muted); max-width:560px; }
+  .shot{ display:flex; justify-content:center; }
+  .shot img{ width:330px; max-width:100%; height:auto;
+    filter:drop-shadow(0 20px 42px rgba(15,76,92,.16)); }
+  .callout{ margin-top:28px; display:inline-block; background:var(--sage-light);
+    border-left:3px solid var(--sage); padding:14px 20px; border-radius:0 8px 8px 0;
+    font-size:15px; color:var(--teal); }
+
+  /* QUICK SPECS */
+  .quick{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin:64px 0 0; }
+  @media(max-width:860px){ .quick{grid-template-columns:1fr 1fr;} }
+  .q{ background:var(--white); border:1px solid var(--border); border-radius:14px; padding:24px 22px; }
+  .q .n{ font-family:var(--serif); font-size:34px; font-weight:500; color:var(--teal); line-height:1; }
+  .q .l{ font-size:12.5px; color:var(--muted); margin-top:7px; }
+
+  /* SPEC TABLES */
+  .specs{ padding:80px 0 0; }
+  .spec-block{ margin-bottom:34px; }
+  .spec-block h2{ font-family:var(--serif); font-size:26px; font-weight:500; margin-bottom:14px; }
+  table{ width:100%; border-collapse:collapse; background:var(--white);
+    border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  td{ padding:13px 20px; border-bottom:1px solid var(--border); font-size:14.5px; }
+  tr:last-child td{ border-bottom:none; }
+  td:first-child{ color:var(--muted); width:44%; }
+  td:last-child{ font-weight:500; }
+  @media(max-width:600px){ td{padding:11px 14px; font-size:13.5px;} }
+
+  .features{ list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:14px 26px; margin-top:8px; }
+  @media(max-width:640px){ .features{grid-template-columns:1fr;} }
+  .features li{ font-size:15px; color:var(--muted); font-weight:300; display:flex; gap:11px;
+    align-items:flex-start; line-height:1.55; }
+  .tick{ color:var(--sage); }
+
+  .note{ background:var(--cream2); border:1px solid var(--border); border-radius:12px;
+    padding:22px 26px; margin-top:16px; font-size:15px; color:var(--muted);
+    font-weight:300; line-height:1.75; }
+  .note b{ color:var(--ink); font-weight:600; }
+
+  .cta{ background:linear-gradient(160deg,#0F4C5C 0%,#0A3A48 45%,#1B3D2A 100%);
+    text-align:center; padding:96px 24px; margin-top:90px; }
+  .cta h2{ font-family:var(--serif); font-size:clamp(32px,4.5vw,50px); font-weight:500;
+    color:#fff; line-height:1.1; margin-bottom:18px; }
+  .cta p{ font-size:17px; color:rgba(255,255,255,.68); font-weight:300; max-width:520px;
+    margin:0 auto 36px; line-height:1.75; }
+  .btn-primary{ background:#fff; color:var(--teal); padding:18px 40px; border-radius:6px;
+    font-size:15px; font-weight:600; display:inline-block; }
+  .btn-ghost{ color:rgba(255,255,255,.68); padding:18px 32px; border-radius:6px; font-size:15px;
+    border:1px solid rgba(255,255,255,.22); margin-left:12px; display:inline-block; }
+  .btn-ghost:hover{ color:#fff; border-color:rgba(255,255,255,.45); }
+  @media(max-width:560px){ .btn-ghost{margin-left:0; margin-top:12px;} }
+
+  footer{ background:var(--teal3); padding:52px 64px 38px; }
+  @media(max-width:768px){ footer{padding:42px 24px 30px;} }
+  .foot-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:26px;
+    padding-bottom:28px; border-bottom:1px solid rgba(255,255,255,.08); }
+  .footer-logo{ font-family:var(--serif); font-size:19px; font-weight:600; color:#fff; }
+  .footer-logo span{ font-style:italic; color:var(--sage-mid); }
+  .foot-contact{ font-size:14px; color:rgba(255,255,255,.6); line-height:1.9; margin-top:10px; }
+  .foot-contact a{ color:rgba(255,255,255,.82); }
+  .foot-links{ display:flex; gap:24px; flex-wrap:wrap; font-size:13px; color:rgba(255,255,255,.55); }
+  .foot-links a:hover{ color:#fff; }
+  .foot-bottom{ padding-top:24px; display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+  .compliance{ font-size:11.5px; color:rgba(255,255,255,.3); line-height:1.75; max-width:620px; }
+  .foot-copy{ font-size:12px; color:rgba(255,255,255,.3); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">The <span>Detox</span> Solution</a>
+  <ul class="nav-links">
+    <li><a href="index.html#story">Our Story</a></li>
+    <li><a href="index.html#service">What We Do</a></li>
+    <li><a href="machine.html">The Machine</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+    <li class="nav-cta-li"><a href="contact.html" class="nav-cta">Partner With Us</a></li>
+  </ul>
+</nav>
+
+<section class="head">
+  <div class="section">
+    <div class="head-grid">
+      <div>
+        <div class="section-tag">The Machine</div>
+        <h1>The DS Tower.</h1>
+        <p class="lede">Our free-standing nicotine vending machine: a 43-inch touchscreen,
+        24 product aisles, on-device 21+ ID verification, and cashless payment — placed,
+        stocked, serviced and monitored entirely by us.</p>
+        <div class="callout"><b>Your facility pays nothing.</b> We own the machine outright.</div>
+      </div>
+      <div class="shot">
+        <img src="machine.png" alt="The DS Tower nicotine vending machine" width="521" height="1000"/>
+      </div>
+    </div>
+
+    <div class="quick">
+      <div class="q"><div class="n">43&Prime;</div><div class="l">Interactive touchscreen</div></div>
+      <div class="q"><div class="n">24</div><div class="l">Product aisles</div></div>
+      <div class="q"><div class="n">192</div><div class="l">Units on board</div></div>
+      <div class="q"><div class="n">21+</div><div class="l">ID verified on device</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="specs">
+  <div class="section">
+
+    <div class="spec-block">
+      <h2>Footprint &amp; build</h2>
+      <table><tbody>
+        <tr><td>Dimensions (W × H × D)</td><td>33.5&Prime; W × 72.8&Prime; H × 23.2&Prime; D</td></tr>
+        <tr><td>Weight</td><td>294 lbs</td></tr>
+        <tr><td>Cabinet</td><td>1.8 mm steel, powder-coated finish</td></tr>
+        <tr><td>Locking</td><td>Triple-barrel lock, keyed</td></tr>
+        <tr><td>Product exit</td><td>5.51&Prime;</td></tr>
+        <tr><td>Mobility</td><td>Locking casters on a welded base — rolls into place, no assembly</td></tr>
+        <tr><td>Securing</td><td>Cable-and-lock to a fixed point, or bracket-mounted. We handle it at install.</td></tr>
+      </tbody></table>
+      <div class="note"><b>Will it fit?</b> It needs a footprint a little wider than a standard
+      doorway and about six feet of height, with normal wall clearance behind it. If you can put a
+      soda machine there, this fits. We confirm placement with you before anything ships.</div>
+    </div>
+
+    <div class="spec-block">
+      <h2>Screen &amp; vending</h2>
+      <table><tbody>
+        <tr><td>Display</td><td>43&Prime; high-resolution LCD touchscreen</td></tr>
+        <tr><td>Aisles</td><td>24 independent product aisles</td></tr>
+        <tr><td>Capacity</td><td>Up to 192 units, depending on product size</td></tr>
+        <tr><td>Age verification</td><td>On-device ID scan — blocks anyone under 21 before it will dispense</td></tr>
+        <tr><td>Payment</td><td>Cashless only — card, tap-to-pay and mobile wallets</td></tr>
+        <tr><td>Refunds</td><td>Issued automatically when a product fails to dispense</td></tr>
+        <tr><td>Lighting</td><td>LED display lighting, adjustable</td></tr>
+      </tbody></table>
+    </div>
+
+    <div class="spec-block">
+      <h2>Power &amp; connectivity</h2>
+      <table><tbody>
+        <tr><td>Power supply</td><td>110 V AC, 60 Hz — a standard wall outlet</td></tr>
+        <tr><td>Power draw</td><td>80 W (0.5–0.6 A) — roughly a household lightbulb</td></tr>
+        <tr><td>Connectivity</td><td>Cellular, with Wi-Fi and Ethernet available</td></tr>
+        <tr><td>Facility network</td><td><b>Not required.</b> It runs on its own cellular connection and never touches your network.</td></tr>
+        <tr><td>Operating temperature</td><td>41&deg;F to 104&deg;F</td></tr>
+        <tr><td>Monitoring</td><td>Inventory and performance monitored remotely, 24/7</td></tr>
+      </tbody></table>
+      <div class="note"><b>What your IT team needs to do: nothing.</b> The machine is self-contained.
+      No network access, no credentials, no security review — it simply needs a power outlet.</div>
+    </div>
+
+    <div class="spec-block">
+      <h2>What comes standard</h2>
+      <ul class="features">
+        <li><span class="tick">✓</span> Delivery, placement and install — under 45 minutes</li>
+        <li><span class="tick">✓</span> 21+ ID verification hardware</li>
+        <li><span class="tick">✓</span> Cashless payment terminal</li>
+        <li><span class="tick">✓</span> Cellular connectivity</li>
+        <li><span class="tick">✓</span> First stocking, done by us</li>
+        <li><span class="tick">✓</span> Recurring restocks by a local manager</li>
+        <li><span class="tick">✓</span> All maintenance, service and repairs</li>
+        <li><span class="tick">✓</span> Licensing, tax and compliance</li>
+        <li><span class="tick">✓</span> Remote monitoring, 24/7</li>
+        <li><span class="tick">✓</span> Removal at any time, at no cost</li>
+      </ul>
+      <div class="note">There are no options to choose and no add-ons to price. Every machine we
+      place is configured the same way, and every part of that list is included — because your
+      facility is not buying anything.</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Want one in your facility?</h2>
+  <p>A short conversation confirms fit and placement. No cost, no contract, nothing to sign.</p>
+  <a href="contact.html" class="btn-primary">Partner With Us →</a>
+  <a href="https://cal.com/jacob-hagman/the-detox-solution-facility-consultation" class="btn-ghost">Book 15 minutes</a>
+</section>
+
+<footer>
+  <div class="foot-top">
+    <div>
+      <div class="footer-logo">The <span>Detox</span> Solution</div>
+      <div class="foot-contact">
+        <a href="mailto:jacob@thedetoxsolution.com">jacob@thedetoxsolution.com</a><br/>
+        <a href="tel:2164808795">(216) 480-8795</a>
+      </div>
+    </div>
+    <div class="foot-links">
+      <a href="index.html#story">Our Story</a>
+      <a href="index.html#service">What We Do</a>
+      <a href="machine.html">The Machine</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="contact.html">Partner With Us</a>
+      <a href="refund.html">Request a Refund</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="compliance">Nicotine products are dispensed to verified adults 21+ only, with
+    on-device age verification, in compliance with applicable federal and state law. Service
+    offered to adult, nicotine-permitted residential facilities only.</div>
+    <div class="foot-copy">© 2026 Clear Path Solutions Group LLC</div>
+  </div>
+</footer>
+</body>
+</html>
