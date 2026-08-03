@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://thedetoxsolution.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://thedetoxsolution.com/about.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thedetoxsolution.com/machine.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thedetoxsolution.com/contact.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thedetoxsolution.com/facility.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://thedetoxsolution.com/start.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://thedetoxsolution.com/refund.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>
