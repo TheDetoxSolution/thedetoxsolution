@@ -290,3 +290,43 @@ p{margin:0}
 .hero .kicker{color:var(--on-dark-muted)}
 .hero-net h1{max-width:13.2ch}
 .zero b,.stat b,.counter b,.sheet dd,.steps li::before,.states span{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+
+/* happy-medium additions */
+.zeros-4{grid-template-columns:repeat(4,1fr)}
+.zeros-4 .zero{gap:14px}
+.zeros-4 .zero b{font-size:clamp(2.8rem,4.4vw,4rem)}
+.story{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,7vw,96px);align-items:start}
+.story-copy p+p{margin-top:18px;color:var(--muted);max-width:38em}
+.three{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px;border-top:1px solid var(--line)}
+.three div{padding:28px 32px 0 0}
+.three div+div{padding-left:32px;border-left:1px solid var(--line)}
+.three h3{font-family:var(--serif);font-size:clamp(1.6rem,2.4vw,2rem);font-weight:600;line-height:1.1;margin-bottom:10px}
+.three p{color:var(--muted)}
+.serve{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink)}
+.serve li{padding:26px 24px 0 0}
+.serve li+li{padding-left:24px;border-left:1px solid var(--line)}
+.serve p.display{font-size:clamp(1.5rem,2.2vw,1.9rem);line-height:1.1;margin-bottom:10px}
+.serve p+p{color:var(--muted)}
+.big50{display:flex;align-items:baseline;gap:18px;margin-top:28px}
+.big50 b{font-family:var(--serif);font-weight:600;font-size:clamp(5rem,10vw,8.5rem);line-height:.8;color:var(--glass);font-variant-numeric:lining-nums}
+.big50 span{font-size:1.15rem;color:var(--on-dark)}
+.zero b{font-variant-numeric:lining-nums}
+@media (max-width:1020px){
+  .zeros-4{grid-template-columns:1fr 1fr}
+  .zeros-4 .zero:nth-child(3){border-left:0;padding-left:0}
+  .zeros-4 .zero:nth-child(n+3){border-top:1px solid var(--line-dark)}
+  .story{grid-template-columns:1fr}
+  .serve{grid-template-columns:1fr 1fr}
+  .serve li:nth-child(3){border-left:0;padding-left:0}
+  .serve li{padding-bottom:26px}
+}
+@media (max-width:700px){
+  .zeros-4{grid-template-columns:1fr 1fr}
+  .zeros-4 .zero{flex-direction:column;gap:8px;padding:20px 0!important;border-left:0!important}
+  .zeros-4 .zero:nth-child(even){padding-left:16px!important}
+  .three,.serve{grid-template-columns:1fr}
+  .three div,.serve li{padding:22px 0!important;border-left:0!important}
+  .three div+div,.serve li+li{border-top:1px solid var(--line)}
+}
+.zeros-4 .zero{flex-direction:column;align-items:flex-start;gap:10px}
+.zeros-4 .zero span{max-width:14em}
