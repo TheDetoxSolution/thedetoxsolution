@@ -302,7 +302,7 @@ p{margin:0}
 .three div+div{padding-left:32px;border-left:1px solid var(--line)}
 .three h3{font-family:var(--serif);font-size:clamp(1.6rem,2.4vw,2rem);font-weight:600;line-height:1.1;margin-bottom:10px}
 .three p{color:var(--muted)}
-.serve{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink)}
+.serve{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink)}
 .serve li{padding:26px 24px 0 0}
 .serve li+li{padding-left:24px;border-left:1px solid var(--line)}
 .serve p.display{font-size:clamp(1.5rem,2.2vw,1.9rem);line-height:1.1;margin-bottom:10px}
@@ -316,8 +316,9 @@ p{margin:0}
   .zeros-4 .zero:nth-child(3){border-left:0;padding-left:0}
   .zeros-4 .zero:nth-child(n+3){border-top:1px solid var(--line-dark)}
   .story{grid-template-columns:1fr}
-  .serve{grid-template-columns:1fr 1fr}
-  .serve li:nth-child(3){border-left:0;padding-left:0}
+  .serve{grid-template-columns:1fr}
+  .serve li{border-left:0!important;padding-left:0!important}
+  .serve li+li{border-top:1px solid var(--line)}
   .serve li{padding-bottom:26px}
 }
 @media (max-width:700px){
